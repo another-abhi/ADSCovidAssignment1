@@ -2,10 +2,14 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import advds.assignment1.util.reader.DataSetReader;
+import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.implementations.DequeueImplementationStrategy;
+import advds.assignment1.implementations.ImplementationStrategy;
+import advds.assignment1.implementations.QueueImplementationStrategy;
+import advds.assignment1.implementations.StackImplementationStrategy;
+import advds.assignment1.util.reader.DailyVaccinationsReader;
 
 public class Test {
 	public static void main(String args[]) throws IOException {
@@ -21,8 +25,17 @@ public class Test {
 			 String response = new String(url.openStream().readAllBytes(), StandardCharsets.UTF_8);
 			 
 
-			 DataSetReader dr = new DataSetReader(response);
+			 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
 			 
+			 ArrayList<ImplementationStrategy<DailyVaccinationDTO>> implementations =new ArrayList<ImplementationStrategy<DailyVaccinationDTO>>();
+			 implementations.add(new StackImplementationStrategy());
+			 implementations.add(new QueueImplementationStrategy());
+			 implementations.add(new DequeueImplementationStrategy());
+			 
+			 for(ImplementationStrategy<DailyVaccinationDTO> implementation : implementations) {
+				 implementation.loadData(dr);
+				 System.out.println(implementation);
+			 }
 			 System.out.println(dr);
 		 }
 		 
