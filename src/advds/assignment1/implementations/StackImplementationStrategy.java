@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Stack;
 
 import advds.assignment1.dto.DailyVaccinationDTO;
-import advds.assignment1.util.reader.DataSetReader;
 import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DataSetReader;
 
 public class StackImplementationStrategy implements ImplementationStrategy<DailyVaccinationDTO> {
 	

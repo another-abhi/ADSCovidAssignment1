@@ -28,13 +28,16 @@ public class Test {
 			 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
 			 
 			 ArrayList<ImplementationStrategy<DailyVaccinationDTO>> implementations =new ArrayList<ImplementationStrategy<DailyVaccinationDTO>>();
-			 implementations.add(new StackImplementationStrategy());
+			 //implementations.add(new StackImplementationStrategy());
 			 implementations.add(new QueueImplementationStrategy());
-			 implementations.add(new DequeueImplementationStrategy());
+			 //implementations.add(new DequeueImplementationStrategy());
 			 
 			 for(ImplementationStrategy<DailyVaccinationDTO> implementation : implementations) {
 				 implementation.loadData(dr);
 				 System.out.println(implementation);
+				 
+				 System.out.println("search: "+ implementation.search("2020-12-29").toString());
+				 
 			 }
 			 System.out.println(dr);
 		 }
