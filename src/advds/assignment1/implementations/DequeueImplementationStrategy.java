@@ -12,7 +12,7 @@ import advds.assignment1.util.DateComparator;
 import advds.assignment1.util.reader.DailyVaccinationsReader;
 import advds.assignment1.util.reader.DataSetReader;
 
-// TODO: Auto-generated Javadoc
+// 
 /**
  * The Class DequeueImplementationStrategy.
  */
@@ -22,7 +22,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	private ArrayDeque<DailyVaccinationDTO> deque = new ArrayDeque<DailyVaccinationDTO>(); 
 	
 	/**
-	 * Load data.
+	 * Load the data from the reader and populates to the deque in sorted order using comparater.
 	 *
 	 * @param reader the reader
 	 */
@@ -59,7 +59,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	/**
 	 * Search.
 	 *
-	 * @param key the key
+	 * @param key the date for which details are to be fetched.
 	 * @return the daily vaccination DTO
 	 */
 	@Override
@@ -85,7 +85,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	}
 
 	/**
-	 * Gets the latest.
+	 * Gets the latest date details available.
 	 *
 	 * @return the latest
 	 */
@@ -95,7 +95,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	}
 
 	/**
-	 * Gets the first.
+	 * Gets the first date details available.
 	 *
 	 * @return the first
 	 */
@@ -127,7 +127,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	/**
 	 * Gets the cumulative dose 1 count.
 	 *
-	 * @param key the key
+	 * @param key the date for which cumulative count is to be found
 	 * @return the cumulative dose 1 count
 	 */
 	@Override
@@ -148,7 +148,7 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 	/**
 	 * Gets the cumulative dose 2 count.
 	 *
-	 * @param key the key
+	 * @param key the date for which cumulative count is to be found
 	 * @return the cumulative dose 2 count
 	 */
 	@Override
