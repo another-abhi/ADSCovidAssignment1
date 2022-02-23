@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.util.reader;
 
 import java.util.ArrayList;
@@ -15,17 +18,40 @@ import advds.assignment1.dto.DailyVaccinationDTO;
 import advds.assignment1.mapper.JSONtoDailyVaccinationMapper;
 import advds.assignment1.mapper.Mapper;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DailyVaccinationsReader.
+ */
 public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDTO>{
+	
+	/** The daily vaccinations. */
 	private List<DailyVaccinationDTO> dailyVaccinations;
 
+	/**
+	 * Gets the daily vaccinations.
+	 *
+	 * @return the daily vaccinations
+	 */
 	public List<DailyVaccinationDTO> getDailyVaccinations() {
 		return dailyVaccinations;
 	}
 
+	/**
+	 * Sets the daily vaccinations.
+	 *
+	 * @param dailyVaccinations the new daily vaccinations
+	 */
 	public void setDailyVaccinations(List<DailyVaccinationDTO> dailyVaccinations) {
 		this.dailyVaccinations = dailyVaccinations;
 	}
 
+	/**
+	 * Instantiates a new daily vaccinations reader.
+	 *
+	 * @param json the json
+	 * @throws JsonMappingException    the json mapping exception
+	 * @throws JsonProcessingException the json processing exception
+	 */
 	public DailyVaccinationsReader(String json) throws JsonMappingException, JsonProcessingException {
 		
 		if(dailyVaccinations == null) {
@@ -41,11 +67,21 @@ public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDT
 
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		return "DataSetReader [dailyVaccinations=" + dailyVaccinations + "]";
 	}
 
+	/**
+	 * Gets the data.
+	 *
+	 * @return the data
+	 */
 	@Override
 	public List<DailyVaccinationDTO> getData() {
 		return getDailyVaccinations();
