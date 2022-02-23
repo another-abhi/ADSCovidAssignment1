@@ -58,4 +58,6 @@ public class MonthlyVaccinationDTO extends VaccinationDTO{
 		MonthlyVaccinationDTO other = (MonthlyVaccinationDTO) obj;
 		return Objects.equals(yearMonth, other.yearMonth);
 	}
+	
+
 }

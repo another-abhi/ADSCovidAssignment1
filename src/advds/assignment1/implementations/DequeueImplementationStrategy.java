@@ -165,5 +165,17 @@ public class DequeueImplementationStrategy implements ImplementationStrategy<Dai
 		}
 		return count;
 	}
+
+	@Override
+	public int getMonthlyVaccineCountDose1(String key) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getMonthlyVaccineCountDose2(String key) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
