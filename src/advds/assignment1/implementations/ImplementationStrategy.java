@@ -4,6 +4,7 @@
 package advds.assignment1.implementations;
 
 import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.dto.MonthlyVaccinationDTO;
 import advds.assignment1.util.reader.DataSetReader;
 
 // TODO: Auto-generated Javadoc
@@ -34,14 +35,14 @@ public interface ImplementationStrategy<T> {
 	 *
 	 * @return the latest
 	 */
-	public DailyVaccinationDTO getLatest();
+	public T getLatest();
 	
 	/**
 	 * Gets the first.
 	 *
 	 * @return the first
 	 */
-	public DailyVaccinationDTO getFirst();
+	public T getFirst();
 	
 	/**
 	 * Gets the total dose 1 count.
@@ -72,4 +73,21 @@ public interface ImplementationStrategy<T> {
 	 * @return the cumulative dose 2 count
 	 */
 	public int getCumulativeDose2Count(String key);
+	
+	/**
+	 * Gets the monthly vaccine count dose 1.
+	 *
+	 * @param key the key
+	 * @return the monthly vaccine count dose 1 and -1 if no data is available
+	 */
+	public int getMonthlyVaccineCountDose1(String key);
+	
+	/**
+	 * Gets the monthly vaccine count dose 2.
+	 *
+	 * @param key the key
+	 * @return the monthly vaccine count dose 2, and -1 if no data is available
+	 */
+	public int getMonthlyVaccineCountDose2(String key);
+	
 }
