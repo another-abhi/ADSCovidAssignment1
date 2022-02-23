@@ -51,6 +51,8 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	public Queue<DailyVaccinationDTO> getQueueData() {
 		return queueData;
 	}
-
+	
+	
+	
 	
 }
