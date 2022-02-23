@@ -42,7 +42,7 @@ public class Test {
 			 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
 			 
 			 ArrayList<ImplementationStrategy<DailyVaccinationDTO>> implementations =new ArrayList<ImplementationStrategy<DailyVaccinationDTO>>();
-			 implementations.add(new StackImplementationStrategy());
+			 //implementations.add(new StackImplementationStrategy());
 			 implementations.add(new QueueImplementationStrategy());
 			 implementations.add(new DequeueImplementationStrategy());
 			 

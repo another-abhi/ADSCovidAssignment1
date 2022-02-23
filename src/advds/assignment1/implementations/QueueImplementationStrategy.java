@@ -10,7 +10,9 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.dto.MonthlyVaccinationDTO;
 import advds.assignment1.util.DateComparator;
+import advds.assignment1.util.YearMonthComparator;
 import advds.assignment1.util.reader.DataSetReader;
 
 // TODO: Auto-generated Javadoc
@@ -19,6 +21,7 @@ import advds.assignment1.util.reader.DataSetReader;
  */
 public class QueueImplementationStrategy implements ImplementationStrategy<DailyVaccinationDTO> {
 
+<<<<<<< Updated upstream
 	/** The comparator. */
 	Comparator<DailyVaccinationDTO> comparator;
 	
@@ -28,10 +31,21 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	/**
 	 * Instantiates a new queue implementation strategy.
 	 */
+=======
+	Comparator<DailyVaccinationDTO> dateComparator;
+	private PriorityQueue<DailyVaccinationDTO> queueData;
+	
+	Comparator<MonthlyVaccinationDTO> yearMonthComparator;
+	private PriorityQueue<MonthlyVaccinationDTO> monthlyVaccineData;
+	
+>>>>>>> Stashed changes
 	public QueueImplementationStrategy() {
 		super();
-		this.comparator = new DateComparator();
-		this.queueData = new PriorityQueue<>(10,comparator);
+		this.dateComparator = new DateComparator();
+		this.queueData = new PriorityQueue<>(10,dateComparator);
+		
+		this.yearMonthComparator = new YearMonthComparator();
+		this.monthlyVaccineData = new PriorityQueue<>(10,yearMonthComparator); 
 	}
 
 	/**
@@ -41,7 +55,7 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	 */
 	@Override
 	public void loadData(DataSetReader<DailyVaccinationDTO> reader) {
-		// TODO Auto-generated method stub
+		// Loads JSON Parsed data set into a priority queue
 		
 		for (DailyVaccinationDTO dailyVaccinationDTO : reader.getData()) {
 			queueData.add(dailyVaccinationDTO);
@@ -81,6 +95,7 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 		return queueData;
 	}
 
+<<<<<<< Updated upstream
 	@Override
 	public DailyVaccinationDTO getLatest() {
 		// TODO Auto-generated method stub
@@ -115,9 +130,19 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	public int getCumulativeDose2Count(String key) {
 		// TODO Auto-generated method stub
 		return 0;
+=======
+	public PriorityQueue<MonthlyVaccinationDTO> getMonthlyVaccineData() {
+		return monthlyVaccineData;
+>>>>>>> Stashed changes
 	}
 	
 	
+	public void monthlyVaccineStats() {
+		// Aggregates daily vaccination count to monthly figures
+		
+		
+		
+	}
 	
 	
 }
