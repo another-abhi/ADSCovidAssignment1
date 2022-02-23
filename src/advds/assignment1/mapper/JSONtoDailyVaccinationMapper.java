@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.mapper;
 
 import java.time.LocalDate;
@@ -6,8 +9,18 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 import advds.assignment1.dto.DailyVaccinationDTO;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JSONtoDailyVaccinationMapper.
+ */
 public class JSONtoDailyVaccinationMapper implements Mapper<DailyVaccinationDTO>{
 
+	/**
+	 * Map.
+	 *
+	 * @param json the json
+	 * @return the daily vaccination DTO
+	 */
 	@Override
 	public DailyVaccinationDTO map(JsonNode json) {
 		
