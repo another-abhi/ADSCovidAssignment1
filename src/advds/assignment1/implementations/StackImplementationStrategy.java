@@ -6,7 +6,7 @@ package advds.assignment1.implementations;
 import java.util.List;
 import java.util.Stack;
 
-import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.util.reader.DailyVaccinationsReader;
 import advds.assignment1.util.reader.DataSetReader;
 
@@ -14,10 +14,10 @@ import advds.assignment1.util.reader.DataSetReader;
 /**
  * The Class StackImplementationStrategy.
  */
-public class StackImplementationStrategy implements ImplementationStrategy<DailyVaccinationDTO> {
+public class StackImplementationStrategy implements ImplementationStrategy<DailyCasesDTO> {
 	
 	/** The stack. */
-	private Stack<DailyVaccinationDTO> stack;
+	private Stack<DailyCasesDTO> stack;
 
 	/**
 	 * Load data.
@@ -25,10 +25,10 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	 * @param reader the reader
 	 */
 	@Override
-	public void loadData(DataSetReader<DailyVaccinationDTO> reader) {
-		this.stack = new Stack<DailyVaccinationDTO>();
-		List<DailyVaccinationDTO> data = ((DailyVaccinationsReader)reader).getData();
-		for(DailyVaccinationDTO item: data) {
+	public void loadData(DataSetReader<DailyCasesDTO> reader) {
+		this.stack = new Stack<DailyCasesDTO>();
+		List<DailyCasesDTO> data = ((DailyVaccinationsReader)reader).getData();
+		for(DailyCasesDTO item: data) {
 			stack.push(item);
 		}
 		
@@ -41,7 +41,7 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	 * @return the daily vaccination DTO
 	 */
 	@Override
-	public DailyVaccinationDTO search(String key) {
+	public DailyCasesDTO search(String key) {
 		return null;
 	}
 
@@ -50,7 +50,7 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	 *
 	 * @return the stack
 	 */
-	public Stack<DailyVaccinationDTO> getStack() {
+	public Stack<DailyCasesDTO> getStack() {
 		return stack;
 	}
 
@@ -65,52 +65,23 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	}
 
 	@Override
-	public DailyVaccinationDTO getLatest() {
+	public DailyCasesDTO getLatest() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DailyVaccinationDTO getFirst() {
+	public DailyCasesDTO getFirst() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int getTotalDose1Count() {
+	public void sort() {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 
-	@Override
-	public int getTotalDose2Count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getCumulativeDose1Count(String key) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getCumulativeDose2Count(String key) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getMonthlyVaccineCountDose1(String key) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getMonthlyVaccineCountDose2(String key) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 

@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * The Class MonthlyVaccinationDTO.
  */
-public class MonthlyVaccinationDTO extends VaccinationDTO{
+public class MonthlyVaccinationDTO extends CasesDTO{
 	
 	/** The year month. */
 	YearMonth yearMonth;
