@@ -4,16 +4,14 @@
 package advds.assignment1.dto;
 
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class VaccinationDTO.
+ * The Class CasesDTO.
  */
 public abstract class CasesDTO {
 	
 	
 	private String county;
 	
-	/** The dose 1. */
 	private int cases;
 
 	public String getCounty() {

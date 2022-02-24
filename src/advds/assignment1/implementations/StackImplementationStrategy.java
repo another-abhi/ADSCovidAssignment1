@@ -41,7 +41,7 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	 * @return the daily vaccination DTO
 	 */
 	@Override
-	public DailyCasesDTO search(String key) {
+	public DailyCasesDTO search(String key, String county) {
 		return null;
 	}
 

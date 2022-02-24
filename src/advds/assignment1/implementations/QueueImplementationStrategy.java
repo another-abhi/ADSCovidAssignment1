@@ -64,7 +64,7 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	 * @return the daily vaccination DTO
 	 */
 	@Override
-	public DailyCasesDTO search(String key) {
+	public DailyCasesDTO search(String key, String county) {
 		// TODO Auto-generated method stub
 	    while(!queueData.isEmpty()){
 	        DailyCasesDTO element = queueData.poll();

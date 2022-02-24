@@ -57,7 +57,7 @@ public class Test {
 			elapsed = endTime - startTime;
 			evaluationMetrics.get(counter).add(elapsed);
 			startTime = System.currentTimeMillis();
-			System.out.println("search: "+ implementation.search("2022-01-19"));
+			System.out.println("search: "+ implementation.search("2022-01-19","Dublin"));
 			endTime = System.currentTimeMillis();
 			elapsed = endTime - startTime;
 			evaluationMetrics.get(counter).add(elapsed);
