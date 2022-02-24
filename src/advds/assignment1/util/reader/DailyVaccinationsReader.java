@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.mapper.JSONtoDailyVaccinationMapper;
 import advds.assignment1.mapper.Mapper;
 
@@ -22,17 +22,17 @@ import advds.assignment1.mapper.Mapper;
 /**
  * The Class DailyVaccinationsReader.
  */
-public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDTO>{
+public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 	
 	/** The daily vaccinations. */
-	private List<DailyVaccinationDTO> dailyVaccinations;
+	private List<DailyCasesDTO> dailyVaccinations;
 
 	/**
 	 * Gets the daily vaccinations.
 	 *
 	 * @return the daily vaccinations
 	 */
-	public List<DailyVaccinationDTO> getDailyVaccinations() {
+	public List<DailyCasesDTO> getDailyVaccinations() {
 		return dailyVaccinations;
 	}
 
@@ -41,7 +41,7 @@ public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDT
 	 *
 	 * @param dailyVaccinations the new daily vaccinations
 	 */
-	public void setDailyVaccinations(List<DailyVaccinationDTO> dailyVaccinations) {
+	public void setDailyVaccinations(List<DailyCasesDTO> dailyVaccinations) {
 		this.dailyVaccinations = dailyVaccinations;
 	}
 
@@ -55,14 +55,14 @@ public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDT
 	public DailyVaccinationsReader(String json) throws JsonMappingException, JsonProcessingException {
 		
 		if(dailyVaccinations == null) {
-			dailyVaccinations = new ArrayList<DailyVaccinationDTO>();
+			dailyVaccinations = new ArrayList<DailyCasesDTO>();
 		}
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonNode = objectMapper.readTree(json);
 		Iterator<JsonNode> iterator = jsonNode.get("features").elements();
-		Mapper mapper = new JSONtoDailyVaccinationMapper();
+		Mapper<DailyCasesDTO> mapper = new JSONtoDailyVaccinationMapper();
 		while(iterator.hasNext()) {
-			dailyVaccinations.add((DailyVaccinationDTO)mapper.map(iterator.next().get("properties")));
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
 		}
 
 	}
@@ -83,7 +83,7 @@ public class DailyVaccinationsReader implements DataSetReader<DailyVaccinationDT
 	 * @return the data
 	 */
 	@Override
-	public List<DailyVaccinationDTO> getData() {
+	public List<DailyCasesDTO> getData() {
 		return getDailyVaccinations();
 	}
 	

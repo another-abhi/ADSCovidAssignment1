@@ -3,17 +3,19 @@
  */
 package advds.assignment1.mapper;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-import advds.assignment1.dto.DailyVaccinationDTO;
+import advds.assignment1.dto.DailyCasesDTO;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class JSONtoDailyVaccinationMapper.
  */
-public class JSONtoDailyVaccinationMapper implements Mapper<DailyVaccinationDTO>{
+public class JSONtoDailyVaccinationMapper implements Mapper<DailyCasesDTO>{
 
 	/**
 	 * Map.
@@ -22,15 +24,13 @@ public class JSONtoDailyVaccinationMapper implements Mapper<DailyVaccinationDTO>
 	 * @return the daily vaccination DTO
 	 */
 	@Override
-	public DailyVaccinationDTO map(JsonNode json) {
+	public DailyCasesDTO map(JsonNode json) {
 		
-	
-		String date = json.get("VaccinationDate").asText().split("T")[0];
+		String date = json.get("TimeStamp").asText().split("T")[0];
 		LocalDate localDate = LocalDate.parse(date);
+		int cases = json.get("ConfirmedCovidCases").asInt();
+		String county = json.get("CountyName").asText();
 		
-		int dose1 = json.get("Dose1").asInt();
-		int dose2 = json.get("Dose2").asInt();
-		
-		return new DailyVaccinationDTO(localDate, dose1, dose2);
+		return new DailyCasesDTO(county, cases, localDate);
 	}
 }
