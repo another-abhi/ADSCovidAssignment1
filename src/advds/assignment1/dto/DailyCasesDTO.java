@@ -9,7 +9,7 @@ import java.util.Objects;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class DailyVaccinationDTO.
+ * The Class DailyCasesDTO.
  */
 public class DailyCasesDTO extends CasesDTO {
 
@@ -64,11 +64,23 @@ public class DailyCasesDTO extends CasesDTO {
 
 
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		return "DailyCasesDTO [date=" + date + ", toString()=" + super.toString() + "]";
 	}
 
+	/**
+	 * Instantiates a new daily cases DTO.
+	 *
+	 * @param county the county
+	 * @param cases  the cases
+	 * @param date   the date
+	 */
 	public DailyCasesDTO(String county, int cases, LocalDate date) {
 		super(county, cases);
 		this.date = date;
