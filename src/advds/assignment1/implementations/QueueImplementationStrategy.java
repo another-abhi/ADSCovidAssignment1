@@ -55,8 +55,6 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 			queueData.add(dailyVaccinationDTO);
 		}
 		
-		monthlyVaccineStats();
-		
 	}
 
 	/**
@@ -177,7 +175,6 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	}
 	
 	
-	
 	public void monthlyVaccineStats() {
 		// Aggregates daily vaccination count to monthly figures
 		
@@ -216,6 +213,9 @@ public class QueueImplementationStrategy implements ImplementationStrategy<Daily
 	
 	public MonthlyVaccinationDTO getMonthlyVaccine(String key) {
 		
+		if(monthlyVaccineData.isEmpty()) { // builds the priority queue only if its empty
+			monthlyVaccineStats();	
+		}
 		// TODO Auto-generated method stub
 	    while(!monthlyVaccineData.isEmpty()){
 	        MonthlyVaccinationDTO element = monthlyVaccineData.poll();
