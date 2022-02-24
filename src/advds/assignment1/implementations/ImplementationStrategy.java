@@ -28,7 +28,7 @@ public interface ImplementationStrategy<T> {
 	 * @param key the key
 	 * @return the t
 	 */
-	T search(String key);
+	T search(String key1, String key2);
 	
 	/**
 	 * Gets the latest.

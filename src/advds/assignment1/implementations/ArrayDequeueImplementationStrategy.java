@@ -43,10 +43,10 @@ public class ArrayDequeueImplementationStrategy implements ImplementationStrateg
 	 * @return the daily vaccination DTO
 	 */
 	@Override
-	public DailyCasesDTO search(String key) {
+	public DailyCasesDTO search(String date, String county) {
 		while(!deque.isEmpty()) {
 			DailyCasesDTO current = deque.removeFirst();
-			if(current.getDate().isEqual(LocalDate.parse(key))) {
+			if(current.getDate().isEqual(LocalDate.parse(date))&&current.getCounty().equals(county)) {
 				deque.clear();
 				return current;
 			}
