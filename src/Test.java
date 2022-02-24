@@ -5,11 +5,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
-import advds.assignment1.dto.DailyVaccinationDTO;
-import advds.assignment1.implementations.DequeueImplementationStrategy;
+import advds.assignment1.dto.DailyCasesDTO;
+import advds.assignment1.implementations.ArrayDequeueImplementationStrategy;
 import advds.assignment1.implementations.ImplementationStrategy;
+import advds.assignment1.implementations.LinkedDequeueImplementationStrategy;
 import advds.assignment1.implementations.QueueImplementationStrategy;
 import advds.assignment1.implementations.StackImplementationStrategy;
 import advds.assignment1.util.reader.DailyVaccinationsReader;
@@ -27,48 +31,61 @@ public class Test {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static void main(String args[]) throws IOException {
-		 URL url = new URL("https://opendata.arcgis.com/datasets/a0e3a1c53ad8422faf00604ee08955db_0.geojson"); 
-		 HttpURLConnection conn = (HttpURLConnection)url.openConnection(); 
-		 conn.setRequestMethod("GET");
-		 conn.connect();
-		 int responsecode = conn.getResponseCode();
-		 if(responsecode != 200)
-			 throw new RuntimeException("HttpResponseCode: " +responsecode);
-		 else
-		 {
-			 String response = new String(url.openStream().readAllBytes(), StandardCharsets.UTF_8);
-			 
+		 String response = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/src/covidData.json")));
 
-			 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
-			 
-			 ArrayList<ImplementationStrategy<DailyVaccinationDTO>> implementations =new ArrayList<ImplementationStrategy<DailyVaccinationDTO>>();
-			 //implementations.add(new StackImplementationStrategy());
-			 implementations.add(new QueueImplementationStrategy());
-			 implementations.add(new DequeueImplementationStrategy());
-			 
-			 for(ImplementationStrategy<DailyVaccinationDTO> implementation : implementations) {
-				 implementation.loadData(dr);
-				 System.out.println(implementation);
-				 System.out.println("search: "+ implementation.search("2020-12-29"));
-				 System.out.println("--------------------------------");
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getLatest());
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getFirst());
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getCumulativeDose1Count("2020-12-29"));
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getCumulativeDose2Count("2020-12-29"));
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getTotalDose1Count());
-				 implementation.loadData(dr);
-				 System.out.println(implementation.getTotalDose2Count());
-				 
-			 }
-			 System.out.println(dr);
-		 }
+		 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
 		 
+		 ArrayList<ImplementationStrategy<DailyCasesDTO>> implementations =new ArrayList<ImplementationStrategy<DailyCasesDTO>>();
+		 //implementations.add(new StackImplementationStrategy());
+		 implementations.add(new QueueImplementationStrategy());
+		 implementations.add(new ArrayDequeueImplementationStrategy());
+		 implementations.add(new LinkedDequeueImplementationStrategy());
+		 ArrayList<ArrayList<Long>> evaluationMetrics = new ArrayList<ArrayList<Long>>();
+		 evaluationMetrics.add(new ArrayList<Long>());
+		 evaluationMetrics.add(new ArrayList<Long>());
+		 evaluationMetrics.add(new ArrayList<Long>());
+		 int counter = 0;
+		 for(ImplementationStrategy<DailyCasesDTO> implementation : implementations) {
+			System.out.println("--------------------------------");
+			int i = 0;
+			long startTime = 0;
+			long endTime = 0;
+			long elapsed = 0;
+			startTime = System.currentTimeMillis();
+			implementation.loadData(dr);
+			endTime = System.currentTimeMillis();
+			elapsed = endTime - startTime;
+			evaluationMetrics.get(counter).add(elapsed);
+			startTime = System.currentTimeMillis();
+			System.out.println("search: "+ implementation.search("2022-01-19"));
+			endTime = System.currentTimeMillis();
+			elapsed = endTime - startTime;
+			evaluationMetrics.get(counter).add(elapsed);
+			implementation.loadData(dr);
+			startTime = System.currentTimeMillis();
+			System.out.println(implementation.getLatest());
+			endTime = System.currentTimeMillis();
+			elapsed = endTime - startTime;
+			evaluationMetrics.get(counter).add(elapsed);
+			implementation.loadData(dr);
+			startTime = System.currentTimeMillis();
+			System.out.println(implementation.getFirst());
+			endTime = System.currentTimeMillis();
+			elapsed = endTime - startTime;
+			evaluationMetrics.get(counter).add(elapsed);
 
-
-	}
+						
+			counter++;
+		 }
+		 System.out.println("----------------------------");
+		 for(List<Long> list : evaluationMetrics) {
+			 System.out.println("Metrics");
+			 System.out.println("----------------------------");
+			 for(Long l: list) {
+				 System.out.print(l+",");
+			 }
+			 System.out.println();
+			 System.out.println("----------------------------");
+		 }
+	 }
 }
