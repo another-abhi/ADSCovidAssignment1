@@ -1,15 +1,18 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * Implementation of the stack ADT using a fixed-length array.  All
- * operations are performed in constant time. An exception is thrown
- * if a push operation is attempted when the size of the stack is
- * equal to the length of the array.
+ * Implementation of the stack ADT using a fixed-length array. All operations
+ * are performed in constant time. An exception is thrown if a push operation is
+ * attempted when the size of the stack is equal to the length of the array.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  */
 public class ArrayStack<E> implements Stack<E> {
     /**
@@ -118,8 +121,10 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     /**
-     * Demonstrates sample usage of a stack.
-     */
+	 * Demonstrates sample usage of a stack.
+	 *
+	 * @param args the arguments
+	 */
     public static void main(String[] args) {
         Stack<Integer> S = new ArrayStack<>();  // contents: ()
         S.push(5);                              // contents: (5)

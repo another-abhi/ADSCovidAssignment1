@@ -96,6 +96,11 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 		
 	}
 
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.evaluators;
 
 import java.io.IOException;
@@ -11,8 +14,17 @@ import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ImplementationStrategy;
 import advds.assignment1.util.reader.DailyCovidCasesReader;
 
+/**
+ * The Class InsertionEvaluation.
+ */
 public class InsertionEvaluation extends Evaluation {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void main(String[] args) throws IOException {
 
 		HashMap<String, LinkedHashMap<Long, Long>> evaluationMetrics = new HashMap<String, LinkedHashMap<Long, Long>>();

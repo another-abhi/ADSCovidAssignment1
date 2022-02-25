@@ -1,18 +1,22 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * Realization of a FIFO queue as an adaptation of a SinglyLinkedList.
- * All operations are performed in constant time.
+ * Realization of a FIFO queue as an adaptation of a SinglyLinkedList. All
+ * operations are performed in constant time.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  * @see SinglyLinkedList
  */
 public class LinkedQueue<E> implements Queue<E> {
 
-  /** The primary storage for elements of the queue */
+  /** The primary storage for elements of the queue. */
   private SinglyLinkedList<E> list = new SinglyLinkedList<>();   // an empty  list
 
   /** Constructs an initially empty queue. */
@@ -53,13 +57,21 @@ public class LinkedQueue<E> implements Queue<E> {
   @Override
   public E dequeue() { return list.removeFirst(); }
 
-  /** Produces a string representation of the contents of the queue.
-   *  (from front to back). This exists for debugging purposes only.
-   */
+  /**
+	 * Produces a string representation of the contents of the queue. (from front to
+	 * back). This exists for debugging purposes only.
+	 *
+	 * @return the string
+	 */
   public String toString() {
     return list.toString();
   }
 
+  /**
+	 * Peek.
+	 *
+	 * @return the e
+	 */
   @Override
   public E peek() {
 	return list.first();
