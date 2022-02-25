@@ -14,7 +14,7 @@ package advds.assignment1.dataStructures;
  * @param <E> the element type
  * @see SinglyLinkedList
  */
-public class LinkedStack<E> {
+public class LinkedStack<E> implements Stack<E>{
 
     /** The primary storage for elements of the stack. */
     private SinglyLinkedList<E> list = new SinglyLinkedList<>();   // an empty list
