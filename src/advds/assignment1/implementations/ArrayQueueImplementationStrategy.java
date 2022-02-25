@@ -16,7 +16,7 @@ import advds.assignment1.util.reader.DataSetReader;
 public class ArrayQueueImplementationStrategy implements ImplementationStrategy<DailyCasesDTO>{
 
 	/** The Queue. */
-	private ArrayQueue<DailyCasesDTO> arrayQueueDS = new ArrayQueue<DailyCasesDTO>(20000); 
+	private ArrayQueue<DailyCasesDTO> arrayQueueDS = new ArrayQueue<DailyCasesDTO>(56*19000); 
 	
 	
 	/**
@@ -26,7 +26,7 @@ public class ArrayQueueImplementationStrategy implements ImplementationStrategy<
 	 */
 	@Override
 	public void loadData(DataSetReader<DailyCasesDTO> reader) {
-		this.arrayQueueDS = new ArrayQueue<DailyCasesDTO>(20000);
+		this.arrayQueueDS = new ArrayQueue<DailyCasesDTO>(56*19000);
 
 		for (DailyCasesDTO dailyVaccinationDTO : reader.getData()) {
 			arrayQueueDS.enqueue(dailyVaccinationDTO);

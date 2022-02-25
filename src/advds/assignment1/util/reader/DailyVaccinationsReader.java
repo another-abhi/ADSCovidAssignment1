@@ -26,6 +26,14 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 	
 	/** The daily vaccinations. */
 	private List<DailyCasesDTO> dailyVaccinations;
+	private int readerSize;
+	public int getReaderSize() {
+		return readerSize;
+	}
+
+	public void setReaderSize(int readerSize) {
+		this.readerSize = readerSize;
+	}
 
 	/**
 	 * Gets the daily vaccinations.
@@ -45,11 +53,12 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 		this.dailyVaccinations = dailyVaccinations;
 	}
 
-	public DailyVaccinationsReader(String json, Long size) throws JsonMappingException, JsonProcessingException {
+	public DailyVaccinationsReader(String json, int size) throws JsonMappingException, JsonProcessingException {
 		
 		if(dailyVaccinations == null) {
 			dailyVaccinations = new ArrayList<DailyCasesDTO>();
 		}
+		setReaderSize(size);
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode jsonNode = objectMapper.readTree(json);
 		Iterator<JsonNode> iterator = jsonNode.get("features").elements();
@@ -59,7 +68,560 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
 			count++;
 		}
+		
+		//2
+		jsonNode = objectMapper.readTree(json);
+		iterator = jsonNode.get("features").elements();
+		mapper = new JSONtoDailyVaccinationMapper();
+		count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+		
+		//3
+		jsonNode = objectMapper.readTree(json);
+		iterator = jsonNode.get("features").elements();
+		mapper = new JSONtoDailyVaccinationMapper();
+		count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+		
+		//4
+		jsonNode = objectMapper.readTree(json);
+		iterator = jsonNode.get("features").elements();
+		mapper = new JSONtoDailyVaccinationMapper();
+		count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+		
 
+		//5
+		jsonNode = objectMapper.readTree(json);
+		iterator = jsonNode.get("features").elements();
+		mapper = new JSONtoDailyVaccinationMapper();
+		count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+		
+		//6
+		jsonNode = objectMapper.readTree(json);
+		iterator = jsonNode.get("features").elements();
+		mapper = new JSONtoDailyVaccinationMapper();
+		count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+		//7
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//8
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//9
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//10
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//11
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//12
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//13
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//14
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//15
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				//2
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//3
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//4
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+
+				//5
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+				
+				//6
+				jsonNode = objectMapper.readTree(json);
+				iterator = jsonNode.get("features").elements();
+				mapper = new JSONtoDailyVaccinationMapper();
+				count = 0l;
+				while(iterator.hasNext() && count < size) {
+					dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+					count++;
+				}
+
+		System.out.println("Reader size: "+dailyVaccinations.size());
+			
 	}
 	/**
 	 * Instantiates a new daily vaccinations reader.
@@ -70,7 +632,7 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 	 */
 	public DailyVaccinationsReader(String json) throws JsonMappingException, JsonProcessingException {
 		
-		this(json,Long.MAX_VALUE);
+		this(json,Integer.MAX_VALUE);
 
 	}
 	/**
@@ -90,7 +652,7 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 	 */
 	@Override
 	public List<DailyCasesDTO> getData() {
-		return getDailyVaccinations();
+		return getDailyVaccinations().subList(0, readerSize);
 	}
 	
 	

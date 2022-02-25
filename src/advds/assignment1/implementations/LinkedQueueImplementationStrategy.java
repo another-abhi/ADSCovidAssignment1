@@ -21,7 +21,7 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 		for (DailyCasesDTO dailyVaccinationDTO : reader.getData()) {
 			linkedQueueDS.enqueue(dailyVaccinationDTO);
 		}
-		System.out.println("Records inserted into Array-Queue: "+ linkedQueueDS.size());
+		System.out.println("Records inserted into Linked-Queue: "+ linkedQueueDS.size());
 		
 	}
 

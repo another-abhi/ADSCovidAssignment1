@@ -20,19 +20,20 @@ public class InsertionEvaluation extends Evaluation{
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 			 evaluationMetrics.put(impl.getName(), new LinkedHashMap<Long,Long>());
 		 }
+			DailyVaccinationsReader reader = getReader(MAX_SIZE/56);
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 				long startTime = 0;
 				long endTime = 0;
 				long elapsed = 0;
 				System.out.println(impl.getName());
 				HashMap<Long, Long> complexityMap = evaluationMetrics.get(impl.getName());
-				for(Long n =INIT_VALUE ; n<MAX_SIZE; n+=INC_VALUE) {
-					DailyVaccinationsReader reader = getReader(n);
+				for(int n =INIT_VALUE ; n<MAX_SIZE; n+=INC_VALUE) {
 					startTime = System.currentTimeMillis();
+					reader.setReaderSize(n);
 					impl.loadData(reader);
 					endTime = System.currentTimeMillis();
 					elapsed = endTime - startTime;
-					complexityMap.put(n,elapsed);
+					complexityMap.put((long) n,elapsed);
 					 System.out.println(impl.size()+":"+n+":"+elapsed);
 				}
 				try (PrintWriter writer = new PrintWriter("InsertionEvaluation"+impl.getName()+".csv")) {

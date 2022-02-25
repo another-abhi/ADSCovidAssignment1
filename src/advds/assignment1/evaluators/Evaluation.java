@@ -17,9 +17,9 @@ public abstract class Evaluation {
 
 
 	 private static final ArrayList<ImplementationStrategy<DailyCasesDTO>> implementations =new ArrayList<ImplementationStrategy<DailyCasesDTO>>();
-	 protected static final int MAX_SIZE = 18876;
-	 protected static final int INC_VALUE = 100;
-	 protected static final long INIT_VALUE = 100l;
+	 protected static final int MAX_SIZE = 56*18000;
+	 protected static final int INC_VALUE = 1000;
+	 protected static final int INIT_VALUE = 100;
 	 static {
 
 		//implementations.add(new StackImplementationStrategy());
@@ -35,7 +35,7 @@ public abstract class Evaluation {
 		return implementations;
 	}
 	
-	public static DailyVaccinationsReader getReader(Long size) throws IOException {
+	public static DailyVaccinationsReader getReader(int size) throws IOException {
 		 String response = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/src/covidData.json")));
 		 DailyVaccinationsReader dr = new DailyVaccinationsReader(response,size);
 		 return dr;
