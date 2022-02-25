@@ -3,8 +3,6 @@
  */
 package advds.assignment1.implementations;
 
-import advds.assignment1.dto.DailyCasesDTO;
-import advds.assignment1.dto.MonthlyVaccinationDTO;
 import advds.assignment1.util.reader.DataSetReader;
 
 // TODO: Auto-generated Javadoc
