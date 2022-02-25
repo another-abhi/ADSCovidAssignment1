@@ -22,7 +22,7 @@ public class LinkedStackImplementationStrategy implements ImplementationStrategy
 	 */
 	@Override
 	public void loadData(DataSetReader<DailyCasesDTO> reader) {
-		this.linkedStack = new ArrayStack<DailyCasesDTO>(56*19000);
+		this.linkedStack = new LinkedStack<DailyCasesDTO>();
 
 		for (DailyCasesDTO dailyVaccinationDTO : reader.getData()) {
 			linkedStack.push(dailyVaccinationDTO);
