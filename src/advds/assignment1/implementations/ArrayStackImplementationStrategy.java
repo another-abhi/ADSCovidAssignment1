@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.implementations;
 
 import java.time.LocalDate;
@@ -11,13 +14,16 @@ import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.util.DailyCasesComparator;
 import advds.assignment1.util.reader.DataSetReader;
 
+/**
+ * The Class ArrayStackImplementationStrategy.
+ */
 public class ArrayStackImplementationStrategy implements ImplementationStrategy<DailyCasesDTO>{
 	
-	/** The stack DS */
+	/** The stack DS. */
 	private ArrayStack<DailyCasesDTO> arrayStack = new ArrayStack<DailyCasesDTO>(); 
 	
 	/**
-	 * Load the data from the reader
+	 * Load the data from the reader.
 	 *
 	 * @param reader the reader
 	 */
@@ -32,6 +38,13 @@ public class ArrayStackImplementationStrategy implements ImplementationStrategy<
 		
 	}
 
+	/**
+	 * Search.
+	 *
+	 * @param date   the date
+	 * @param county the county
+	 * @return the daily cases DTO
+	 */
 	@Override
 	public DailyCasesDTO search(String date, String county) {
 		while(!arrayStack.isEmpty()){
@@ -47,12 +60,22 @@ public class ArrayStackImplementationStrategy implements ImplementationStrategy<
 		return null;
 	}
 
+	/**
+	 * Gets the latest.
+	 *
+	 * @return the latest
+	 */
 	@Override
 	public DailyCasesDTO getLatest() {
 		sort();
 		return arrayStack.pop();
 	}
 
+	/**
+	 * Gets the first.
+	 *
+	 * @return the first
+	 */
 	@Override
 	public DailyCasesDTO getFirst() {
 		sort();
@@ -67,7 +90,7 @@ public class ArrayStackImplementationStrategy implements ImplementationStrategy<
 	}
 
 	/**
-	 * Sorting the stack
+	 * Sorting the stack.
 	 */
 	@Override
 	public void sort() {
@@ -86,6 +109,11 @@ public class ArrayStackImplementationStrategy implements ImplementationStrategy<
 	    }
 	}
 
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		return arrayStack.size();

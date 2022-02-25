@@ -1,20 +1,22 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * Realization of a stack as an adaptation of a SinglyLinkedList.
- * All operations are performed in constant time.
+ * Realization of a stack as an adaptation of a SinglyLinkedList. All operations
+ * are performed in constant time.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  * @see SinglyLinkedList
  */
-public class LinkedStack<E> implements Stack<E> {
+public class LinkedStack<E> {
 
-    /**
-     * The primary storage for elements of the stack
-     */
+    /** The primary storage for elements of the stack. */
     private SinglyLinkedList<E> list = new SinglyLinkedList<>();   // an empty list
 
     /**

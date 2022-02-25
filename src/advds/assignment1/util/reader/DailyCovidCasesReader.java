@@ -26,11 +26,24 @@ public class DailyCovidCasesReader implements DataSetReader<DailyCasesDTO>{
 	
 	/** The daily vaccinations. */
 	private List<DailyCasesDTO> dailyCases;
+	
+	/** The reader size. */
 	private int readerSize;
+	
+	/**
+	 * Gets the reader size.
+	 *
+	 * @return the reader size
+	 */
 	public int getReaderSize() {
 		return readerSize;
 	}
 
+	/**
+	 * Sets the reader size.
+	 *
+	 * @param readerSize the new reader size
+	 */
 	public void setReaderSize(int readerSize) {
 		this.readerSize = readerSize;
 	}
@@ -53,6 +66,14 @@ public class DailyCovidCasesReader implements DataSetReader<DailyCasesDTO>{
 		this.dailyCases = dailyVaccinations;
 	}
 
+	/**
+	 * Instantiates a new daily covid cases reader.
+	 *
+	 * @param json the json
+	 * @param size the size
+	 * @throws JsonMappingException    the json mapping exception
+	 * @throws JsonProcessingException the json processing exception
+	 */
 	public DailyCovidCasesReader(String json, int size) throws JsonMappingException, JsonProcessingException {
 		
 		if(dailyCases == null) {
@@ -104,6 +125,11 @@ public class DailyCovidCasesReader implements DataSetReader<DailyCasesDTO>{
 		return getDailyVaccinations().subList(0, readerSize);
 	}
 	
+	/**
+	 * Gets the random record.
+	 *
+	 * @return the random record
+	 */
 	public DailyCasesDTO getRandomRecord() {
 		return dailyCases.get((int) (Math.random()%dailyCases.size()));
 	}

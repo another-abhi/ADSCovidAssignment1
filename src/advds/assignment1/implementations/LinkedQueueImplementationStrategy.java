@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.implementations;
 
 import java.time.LocalDate;
@@ -9,11 +12,20 @@ import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.util.DailyCasesComparator;
 import advds.assignment1.util.reader.DataSetReader;
 
+/**
+ * The Class LinkedQueueImplementationStrategy.
+ */
 public class LinkedQueueImplementationStrategy implements ImplementationStrategy<DailyCasesDTO>{
 
+	/** The linked queue DS. */
 	private LinkedQueue<DailyCasesDTO> linkedQueueDS = new LinkedQueue<DailyCasesDTO>(); 
 	
 	
+	/**
+	 * Load data.
+	 *
+	 * @param reader the reader
+	 */
 	@Override
 	public void loadData(DataSetReader<DailyCasesDTO> reader) {
 		this.linkedQueueDS = new LinkedQueue<DailyCasesDTO>();
@@ -25,6 +37,13 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 		
 	}
 
+	/**
+	 * Search.
+	 *
+	 * @param date   the date
+	 * @param county the county
+	 * @return the daily cases DTO
+	 */
 	@Override
 	public DailyCasesDTO search(String date, String county) {
 		while(!linkedQueueDS.isEmpty()){
@@ -41,6 +60,11 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 		return null;
 	}
 
+	/**
+	 * Gets the latest.
+	 *
+	 * @return the latest
+	 */
 	@Override
 	public DailyCasesDTO getLatest() {
 		sort();
@@ -54,12 +78,20 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 		return linkedQueueDS.dequeue();
 	}
 
+	/**
+	 * Gets the first.
+	 *
+	 * @return the first
+	 */
 	@Override
 	public DailyCasesDTO getFirst() {
 		sort();
 		return linkedQueueDS.dequeue();
 	}
 
+	/**
+	 * Sort.
+	 */
 	@Override
 	public void sort() {
 		ArrayList<DailyCasesDTO> temp = new ArrayList<>();
@@ -79,6 +111,11 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 	}
 
 	
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub

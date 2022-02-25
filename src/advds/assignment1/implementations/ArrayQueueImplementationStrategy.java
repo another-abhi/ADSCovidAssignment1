@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package advds.assignment1.implementations;
 
 import java.time.LocalDate;
@@ -37,8 +40,8 @@ public class ArrayQueueImplementationStrategy implements ImplementationStrategy<
 	/**
 	 * Search.
 	 *
-	 * @param key1 the key 1
-	 * @param key2 the key 2
+	 * @param date   the date
+	 * @param county the county
 	 * @return the daily cases DTO
 	 */
 	@Override
@@ -112,6 +115,11 @@ public class ArrayQueueImplementationStrategy implements ImplementationStrategy<
 	}
 
 	
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub

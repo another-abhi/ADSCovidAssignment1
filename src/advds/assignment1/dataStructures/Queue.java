@@ -1,14 +1,18 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * Interface for a queue: a collection of elements that are inserted
- * and removed according to the first-in first-out principle. Although
- * similar in purpose, this interface differs from java.util.Queue.
+ * Interface for a queue: a collection of elements that are inserted and removed
+ * according to the first-in first-out principle. Although similar in purpose,
+ * this interface differs from java.util.Queue.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  */
 public interface Queue<E> {
   /**
@@ -41,5 +45,10 @@ public interface Queue<E> {
    */
   E dequeue();
   
+  /**
+	 * Peek.
+	 *
+	 * @return the e
+	 */
   E peek(); 
 }

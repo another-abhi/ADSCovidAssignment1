@@ -1,15 +1,19 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * Implementation of the queue ADT using a fixed-length array. All
- * operations are performed in constant time. An exception is thrown
- * if an enqueue operation is attempted when the size of the queue is
- * equal to the length of the array.
+ * Implementation of the queue ADT using a fixed-length array. All operations
+ * are performed in constant time. An exception is thrown if an enqueue
+ * operation is attempted when the size of the queue is equal to the length of
+ * the array.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  */
 
 public class ArrayQueue<E> implements Queue<E> {
@@ -47,7 +51,11 @@ public class ArrayQueue<E> implements Queue<E> {
   @Override
   public int size() { return sz; }
 
-  /** Tests whether the queue is empty. */
+  /**
+	 * Tests whether the queue is empty.
+	 *
+	 * @return true, if is empty
+	 */
   @Override
   public boolean isEmpty() { return (sz == 0); }
 
@@ -107,6 +115,11 @@ public class ArrayQueue<E> implements Queue<E> {
     return sb.toString();
   }
 
+  /**
+	 * Peek.
+	 *
+	 * @return the e
+	 */
   @Override
   public E peek() {
 	 return (E) data[0];

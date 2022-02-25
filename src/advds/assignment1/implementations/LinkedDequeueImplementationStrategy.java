@@ -120,6 +120,11 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 		}
 	}
 
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub

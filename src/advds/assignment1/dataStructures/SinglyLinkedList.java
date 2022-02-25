@@ -1,19 +1,28 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
+/**
+ * The Class SinglyLinkedList.
+ *
+ * @param <E> the element type
+ */
 public class SinglyLinkedList<E> implements Cloneable {
   //---------------- nested Node class ----------------
   /**
-   * Node of a singly linked list, which stores a reference to its
-   * element and to the subsequent node in the list (or null if this
-   * is the last node).
-   */
+	 * Node of a singly linked list, which stores a reference to its element and to
+	 * the subsequent node in the list (or null if this is the last node).
+	 *
+	 * @param <E> the element type
+	 */
   private static class Node<E> {
 
-    /** The element stored at this node */
+    /** The element stored at this node. */
     private E element;            // reference to the element stored at this node
 
-    /** A reference to the subsequent node in the list */
+    /** A reference to the subsequent node in the list. */
     private Node<E> next;         // reference to the subsequent node in the list
 
     /**
@@ -49,13 +58,13 @@ public class SinglyLinkedList<E> implements Cloneable {
   } //----------- end of nested Node class -----------
 
   // instance variables of the SinglyLinkedList
-  /** The head node of the list */
+  /** The head node of the list. */
   private Node<E> head = null;               // head node of the list (or null if empty)
 
-  /** The last node of the list */
+  /** The last node of the list. */
   private Node<E> tail = null;               // last node of the list (or null if empty)
 
-  /** Number of nodes in the list */
+  /** Number of nodes in the list. */
   private int size = 0;                      // number of nodes in the list
 
   /** Constructs an initially empty list. */
@@ -75,9 +84,10 @@ public class SinglyLinkedList<E> implements Cloneable {
   public boolean isEmpty() { return size == 0; }
 
   /**
-   * Returns (but does not remove) the first element of the list
-   * @return element at the front of the list (or null if empty)
-   */
+	 * Returns (but does not remove) the first element of the list.
+	 *
+	 * @return element at the front of the list (or null if empty)
+	 */
   public E first() {             // returns (but does not remove) the first element
     if (isEmpty()) return null;
     return head.getElement();
@@ -132,6 +142,12 @@ public class SinglyLinkedList<E> implements Cloneable {
     return answer;
   }
 
+  /**
+	 * Equals.
+	 *
+	 * @param o the o
+	 * @return true, if successful
+	 */
   @SuppressWarnings({"unchecked"})
   public boolean equals(Object o) {
     if (o == null) return false;
@@ -148,6 +164,12 @@ public class SinglyLinkedList<E> implements Cloneable {
     return true;   // if we reach this, everything matched successfully
   }
 
+  /**
+	 * Clone.
+	 *
+	 * @return the singly linked list
+	 * @throws CloneNotSupportedException the clone not supported exception
+	 */
   @SuppressWarnings({"unchecked"})
   public SinglyLinkedList<E> clone() throws CloneNotSupportedException {
     // always use inherited Object.clone() to create the initial copy
@@ -166,6 +188,11 @@ public class SinglyLinkedList<E> implements Cloneable {
     return other;
   }
 
+  /**
+	 * Hash code.
+	 *
+	 * @return the int
+	 */
   public int hashCode() {
     int h = 0;
     for (Node walk=head; walk != null; walk = walk.getNext()) {
@@ -176,9 +203,11 @@ public class SinglyLinkedList<E> implements Cloneable {
   }
 
   /**
-   * Produces a string representation of the contents of the list.
-   * This exists for debugging purposes only.
-   */
+	 * Produces a string representation of the contents of the list. This exists for
+	 * debugging purposes only.
+	 *
+	 * @return the string
+	 */
   public String toString() {
     StringBuilder sb = new StringBuilder("(");
     Node<E> walk = head;

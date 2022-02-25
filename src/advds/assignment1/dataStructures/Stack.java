@@ -1,14 +1,18 @@
+/*
+ * 
+ */
 package advds.assignment1.dataStructures;
 
 
 /**
- * A collection of objects that are inserted and removed according to the last-in
- * first-out principle. Although similar in purpose, this interface differs from
- * java.util.Stack.
+ * A collection of objects that are inserted and removed according to the
+ * last-in first-out principle. Although similar in purpose, this interface
+ * differs from java.util.Stack.
  *
  * @author Michael T. Goodrich
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
+ * @param <E> the element type
  */
 public interface Stack<E> {
 

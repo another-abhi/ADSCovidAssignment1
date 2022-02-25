@@ -48,11 +48,21 @@ public interface ImplementationStrategy<T> {
 	 */
 	public void sort();
 	
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
+	 */
 	public default String getName() {
 		return this.getClass().getSimpleName();
 		
 	}
 	
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	public int size();
 	
 }

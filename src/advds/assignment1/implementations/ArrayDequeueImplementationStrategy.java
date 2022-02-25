@@ -119,6 +119,11 @@ public class ArrayDequeueImplementationStrategy implements ImplementationStrateg
 		}
 	}
 
+	/**
+	 * Size.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
