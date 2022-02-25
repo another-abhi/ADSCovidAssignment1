@@ -72,7 +72,7 @@ public class ArrayQueueImplementationStrategy implements ImplementationStrategy<
 		// loop the delete queue functionality until the last added element is reached.
 	    while(arrayQueueDS.size() > 1)
 	    {
-	        return arrayQueueDS.dequeue();
+	        arrayQueueDS.dequeue();
 	    }
 	
 		return arrayQueueDS.dequeue();
