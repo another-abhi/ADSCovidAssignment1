@@ -48,7 +48,7 @@ public class LinkedQueueImplementationStrategy implements ImplementationStrategy
 		// loop the delete queue functionality until the last added element is reached.
 	    while(linkedQueueDS.size() > 1)
 	    {
-	        return linkedQueueDS.dequeue();
+	        linkedQueueDS.dequeue();
 	    }
 	
 		return linkedQueueDS.dequeue();
