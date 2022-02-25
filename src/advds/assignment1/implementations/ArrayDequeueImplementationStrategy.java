@@ -9,7 +9,7 @@ import java.util.List;
 
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.util.DateComparator;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 import advds.assignment1.util.reader.DataSetReader;
 
 // 
@@ -29,7 +29,7 @@ public class ArrayDequeueImplementationStrategy implements ImplementationStrateg
 	@Override
 	public void loadData(DataSetReader<DailyCasesDTO> reader) {
 		this.deque = new ArrayDeque<DailyCasesDTO>();
-		List<DailyCasesDTO> data = ((DailyVaccinationsReader)reader).getData();
+		List<DailyCasesDTO> data = ((DailyCovidCasesReader)reader).getData();
 		for(DailyCasesDTO item: data) {
 			deque.add(item);
 		}

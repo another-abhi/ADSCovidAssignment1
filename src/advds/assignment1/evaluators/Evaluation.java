@@ -11,14 +11,14 @@ import advds.assignment1.implementations.ArrayQueueImplementationStrategy;
 import advds.assignment1.implementations.ImplementationStrategy;
 import advds.assignment1.implementations.LinkedDequeueImplementationStrategy;
 import advds.assignment1.implementations.LinkedQueueImplementationStrategy;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 public abstract class Evaluation {
 
 
 	 private static final ArrayList<ImplementationStrategy<DailyCasesDTO>> implementations =new ArrayList<ImplementationStrategy<DailyCasesDTO>>();
-	 protected static final int MAX_SIZE = 56*18000;
-	 protected static final int INC_VALUE = 1000;
+	 protected static final int MAX_SIZE = 18000;
+	 protected static final int INC_VALUE = 500;
 	 protected static final int INIT_VALUE = 100;
 	 static {
 
@@ -35,9 +35,9 @@ public abstract class Evaluation {
 		return implementations;
 	}
 	
-	public static DailyVaccinationsReader getReader(int size) throws IOException {
+	public static DailyCovidCasesReader getReader(int size) throws IOException {
 		 String response = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/src/covidData.json")));
-		 DailyVaccinationsReader dr = new DailyVaccinationsReader(response,size);
+		 DailyCovidCasesReader dr = new DailyCovidCasesReader(response,size);
 		 return dr;
 	}
 }

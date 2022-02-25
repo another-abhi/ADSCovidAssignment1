@@ -9,7 +9,7 @@ import java.util.Map;
 
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ImplementationStrategy;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 public class InsertionEvaluation extends Evaluation{
 
@@ -20,7 +20,7 @@ public class InsertionEvaluation extends Evaluation{
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 			 evaluationMetrics.put(impl.getName(), new LinkedHashMap<Long,Long>());
 		 }
-			DailyVaccinationsReader reader = getReader(MAX_SIZE/56);
+			DailyCovidCasesReader reader = getReader(MAX_SIZE);
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 				long startTime = 0;
 				long endTime = 0;
@@ -28,10 +28,10 @@ public class InsertionEvaluation extends Evaluation{
 				System.out.println(impl.getName());
 				HashMap<Long, Long> complexityMap = evaluationMetrics.get(impl.getName());
 				for(int n =INIT_VALUE ; n<MAX_SIZE; n+=INC_VALUE) {
-					startTime = System.currentTimeMillis();
+					startTime = System.nanoTime();
 					reader.setReaderSize(n);
 					impl.loadData(reader);
-					endTime = System.currentTimeMillis();
+					endTime = System.nanoTime();
 					elapsed = endTime - startTime;
 					complexityMap.put((long) n,elapsed);
 					 System.out.println(impl.size()+":"+n+":"+elapsed);
@@ -45,7 +45,11 @@ public class InsertionEvaluation extends Evaluation{
 					for(Long n:complexityMap.keySet()) {
 						sb.append(n);
 						sb.append(',');
-						sb.append(complexityMap.get(n));
+						Long time = complexityMap.get(n);
+						if(time>500000) {
+							time = 500000l;
+						}
+						sb.append(time);
 						sb.append('\n');
 					}
 					writer.write(sb.toString());

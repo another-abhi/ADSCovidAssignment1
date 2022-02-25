@@ -9,7 +9,7 @@ import java.util.Map;
 
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ImplementationStrategy;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 public class SortEvaluation extends Evaluation{
 
@@ -20,7 +20,7 @@ public class SortEvaluation extends Evaluation{
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 			 evaluationMetrics.put(impl.getName(), new LinkedHashMap<Long,Long>());
 		 }
-			DailyVaccinationsReader reader = getReader(MAX_SIZE/56);
+			DailyCovidCasesReader reader = getReader(MAX_SIZE);
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 				long startTime = 0;
 				long endTime = 0;
