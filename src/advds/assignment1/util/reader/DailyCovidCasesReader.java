@@ -81,7 +81,7 @@ public class DailyCovidCasesReader implements DataSetReader<DailyCasesDTO>{
 	 */
 	public DailyCovidCasesReader(String json) throws JsonMappingException, JsonProcessingException {
 		
-		this(json,Integer.MAX_VALUE);
+		this(json,18000);
 
 	}
 	/**

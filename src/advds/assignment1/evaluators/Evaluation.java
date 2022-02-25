@@ -18,7 +18,7 @@ public abstract class Evaluation {
 
 	 private static final ArrayList<ImplementationStrategy<DailyCasesDTO>> implementations =new ArrayList<ImplementationStrategy<DailyCasesDTO>>();
 	 protected static final int MAX_SIZE = 18000;
-	 protected static final int INC_VALUE = 500;
+	 protected static final int INC_VALUE = 50;
 	 protected static final int INIT_VALUE = 100;
 	 static {
 
