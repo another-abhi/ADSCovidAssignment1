@@ -37,7 +37,8 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 	/**
 	 * Search.
 	 *
-	 * @param key the key
+	 * @param key    the key
+	 * @param county the county
 	 * @return the daily vaccination DTO
 	 */
 	@Override
@@ -64,18 +65,31 @@ public class StackImplementationStrategy implements ImplementationStrategy<Daily
 		return "StackImplementationStrategy [stack=" + stack + "]";
 	}
 
+	/**
+	 * Gets the latest.
+	 *
+	 * @return the latest
+	 */
 	@Override
 	public DailyCasesDTO getLatest() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Gets the first.
+	 *
+	 * @return the first
+	 */
 	@Override
 	public DailyCasesDTO getFirst() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/**
+	 * Sort.
+	 */
 	@Override
 	public void sort() {
 		// TODO Auto-generated method stub

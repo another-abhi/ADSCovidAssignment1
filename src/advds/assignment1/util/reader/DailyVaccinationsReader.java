@@ -45,6 +45,22 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 		this.dailyVaccinations = dailyVaccinations;
 	}
 
+	public DailyVaccinationsReader(String json, Long size) throws JsonMappingException, JsonProcessingException {
+		
+		if(dailyVaccinations == null) {
+			dailyVaccinations = new ArrayList<DailyCasesDTO>();
+		}
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode jsonNode = objectMapper.readTree(json);
+		Iterator<JsonNode> iterator = jsonNode.get("features").elements();
+		Mapper<DailyCasesDTO> mapper = new JSONtoDailyVaccinationMapper();
+		Long count = 0l;
+		while(iterator.hasNext() && count < size) {
+			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
+			count++;
+		}
+
+	}
 	/**
 	 * Instantiates a new daily vaccinations reader.
 	 *
@@ -54,19 +70,9 @@ public class DailyVaccinationsReader implements DataSetReader<DailyCasesDTO>{
 	 */
 	public DailyVaccinationsReader(String json) throws JsonMappingException, JsonProcessingException {
 		
-		if(dailyVaccinations == null) {
-			dailyVaccinations = new ArrayList<DailyCasesDTO>();
-		}
-		ObjectMapper objectMapper = new ObjectMapper();
-		JsonNode jsonNode = objectMapper.readTree(json);
-		Iterator<JsonNode> iterator = jsonNode.get("features").elements();
-		Mapper<DailyCasesDTO> mapper = new JSONtoDailyVaccinationMapper();
-		while(iterator.hasNext()) {
-			dailyVaccinations.add((DailyCasesDTO)mapper.map(iterator.next().get("properties")));
-		}
+		this(json,Long.MAX_VALUE);
 
 	}
-
 	/**
 	 * To string.
 	 *
