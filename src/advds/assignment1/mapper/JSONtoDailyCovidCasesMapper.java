@@ -13,15 +13,15 @@ import advds.assignment1.dto.DailyCasesDTO;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class JSONtoDailyVaccinationMapper.
+ * The Class JSONtoDailyCovidCasesMapper.
  */
-public class JSONtoDailyVaccinationMapper implements Mapper<DailyCasesDTO>{
+public class JSONtoDailyCovidCasesMapper implements Mapper<DailyCasesDTO>{
 
 	/**
 	 * Map.
 	 *
 	 * @param json the json
-	 * @return the daily vaccination DTO
+	 * @return the daily covid cases DTO
 	 */
 	@Override
 	public DailyCasesDTO map(JsonNode json) {

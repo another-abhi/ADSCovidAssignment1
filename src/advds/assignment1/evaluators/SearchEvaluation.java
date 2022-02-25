@@ -9,7 +9,7 @@ import java.util.Map;
 
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ImplementationStrategy;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 public class SearchEvaluation extends Evaluation{
 
@@ -20,7 +20,7 @@ public class SearchEvaluation extends Evaluation{
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 			 evaluationMetrics.put(impl.getName(), new LinkedHashMap<Long,Long>());
 		 }
-			DailyVaccinationsReader reader = getReader(MAX_SIZE/56);
+			DailyCovidCasesReader reader = getReader(MAX_SIZE);
 		 for(ImplementationStrategy<DailyCasesDTO> impl :getImplementations()) {
 				long startTime = 0;
 				long endTime = 0;
@@ -31,11 +31,14 @@ public class SearchEvaluation extends Evaluation{
 					System.out.println(impl.size()+":"+n+":"+elapsed);
 					reader.setReaderSize(n);
 					impl.loadData(reader);
-					startTime = System.currentTimeMillis();
-					impl.search("2021-01-19","Dublin");
-					endTime = System.currentTimeMillis();
+					DailyCasesDTO target = reader.getRandomRecord();
+					startTime = System.nanoTime();
+					DailyCasesDTO found = impl.search(target.getDate().toString(),target.getCounty());
+					endTime = System.nanoTime();
 					elapsed = endTime - startTime;
-					complexityMap.put((long) n,elapsed);
+					if(found!=null) {
+						complexityMap.put((long) n,elapsed);
+					}
 				}
 				try (PrintWriter writer = new PrintWriter("SearchEvaluation"+impl.getName()+".csv")) {
 					StringBuilder sb = new StringBuilder();
@@ -46,7 +49,11 @@ public class SearchEvaluation extends Evaluation{
 					for(Long n:complexityMap.keySet()) {
 						sb.append(n);
 						sb.append(',');
-						sb.append(complexityMap.get(n));
+						Long time = complexityMap.get(n);
+						if(time>125000) {
+							time = 125000l;
+						}
+						sb.append(time);
 						sb.append('\n');
 					}
 					writer.write(sb.toString());

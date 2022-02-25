@@ -10,7 +10,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.util.DateComparator;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 import advds.assignment1.util.reader.DataSetReader;
 
 // 
@@ -30,7 +30,7 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 	@Override
 	public void loadData(DataSetReader<DailyCasesDTO> reader) {
 		this.deque = new LinkedBlockingDeque<DailyCasesDTO>();
-		List<DailyCasesDTO> data = ((DailyVaccinationsReader)reader).getData();
+		List<DailyCasesDTO> data = ((DailyCovidCasesReader)reader).getData();
 		for(DailyCasesDTO item: data) {
 			deque.add(item);
 		}

@@ -29,24 +29,50 @@ public class MonthlyVaccinationDTO extends CasesDTO{
 	}
 	
 	
+	/**
+	 * Gets the year month.
+	 *
+	 * @return the year month
+	 */
 	public YearMonth getYearMonth() {
 		return yearMonth;
 	}
 	
+	/**
+	 * Sets the year month.
+	 *
+	 * @param yearMonth the new year month
+	 */
 	public void setYearMonth(YearMonth yearMonth) {
 		this.yearMonth = yearMonth;
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
 	@Override
 	public String toString() {
 		return "MonthlyVaccinationDTO [yearMonth=" + yearMonth + ", dose1=" + getDose1() + ", dose2=" + getDose2() + "]";
 	}
 
+	/**
+	 * Hash code.
+	 *
+	 * @return the int
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(yearMonth);
 	}
 	
+	/**
+	 * Equals.
+	 *
+	 * @param obj the obj
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
