@@ -34,13 +34,13 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 		for(DailyCasesDTO item: data) {
 			deque.add(item);
 		}
-		sort();
 	}
 
 	/**
 	 * Search.
 	 *
-	 * @param key the date for which details are to be fetched.
+	 * @param date   the date
+	 * @param county the county
 	 * @return the daily vaccination DTO
 	 */
 	@Override
@@ -72,6 +72,7 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 	 */
 	@Override
 	public DailyCasesDTO getLatest() {
+		sort();
 		return deque.getLast();
 	}
 
@@ -82,9 +83,13 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 	 */
 	@Override
 	public DailyCasesDTO getFirst() {
+		sort();
 		return deque.getFirst();
 	}
 	
+	/**
+	 * Sort.
+	 */
 	public void sort() {
 		ArrayDeque<DailyCasesDTO> dequeCopy = new ArrayDeque<DailyCasesDTO>(deque); 
 		deque.clear();
@@ -113,6 +118,12 @@ public class LinkedDequeueImplementationStrategy implements ImplementationStrate
 				}
 			}
 		}
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return deque.size();
 	}
 	
 }

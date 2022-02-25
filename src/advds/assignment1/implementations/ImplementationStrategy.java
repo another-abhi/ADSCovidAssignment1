@@ -25,7 +25,8 @@ public interface ImplementationStrategy<T> {
 	/**
 	 * Search.
 	 *
-	 * @param key the key
+	 * @param key1 the key 1
+	 * @param key2 the key 2
 	 * @return the t
 	 */
 	T search(String key1, String key2);
@@ -44,6 +45,16 @@ public interface ImplementationStrategy<T> {
 	 */
 	public T getFirst();
 	
+	/**
+	 * Sort.
+	 */
 	public void sort();
+	
+	public default String getName() {
+		return this.getClass().getSimpleName();
+		
+	}
+	
+	public int size();
 	
 }
