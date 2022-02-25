@@ -14,9 +14,7 @@ import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ArrayDequeueImplementationStrategy;
 import advds.assignment1.implementations.ImplementationStrategy;
 import advds.assignment1.implementations.LinkedDequeueImplementationStrategy;
-import advds.assignment1.implementations.QueueImplementationStrategy;
-import advds.assignment1.implementations.StackImplementationStrategy;
-import advds.assignment1.util.reader.DailyVaccinationsReader;
+import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -33,11 +31,10 @@ public class Test {
 	public static void main(String args[]) throws IOException {
 		 String response = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/src/covidData.json")));
 
-		 DailyVaccinationsReader dr = new DailyVaccinationsReader(response);
+		 DailyCovidCasesReader dr = new DailyCovidCasesReader(response);
 		 
 		 ArrayList<ImplementationStrategy<DailyCasesDTO>> implementations =new ArrayList<ImplementationStrategy<DailyCasesDTO>>();
 		 //implementations.add(new StackImplementationStrategy());
-		 implementations.add(new QueueImplementationStrategy());
 		 implementations.add(new ArrayDequeueImplementationStrategy());
 		 implementations.add(new LinkedDequeueImplementationStrategy());
 		 ArrayList<ArrayList<Long>> evaluationMetrics = new ArrayList<ArrayList<Long>>();
