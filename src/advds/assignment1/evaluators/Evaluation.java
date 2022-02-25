@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import advds.assignment1.dto.DailyCasesDTO;
 import advds.assignment1.implementations.ArrayDequeueImplementationStrategy;
 import advds.assignment1.implementations.ArrayQueueImplementationStrategy;
+import advds.assignment1.implementations.ArrayStackImplementationStrategy;
 import advds.assignment1.implementations.ImplementationStrategy;
 import advds.assignment1.implementations.LinkedDequeueImplementationStrategy;
 import advds.assignment1.implementations.LinkedQueueImplementationStrategy;
+import advds.assignment1.implementations.LinkedStackImplementationStrategy;
 import advds.assignment1.util.reader.DailyCovidCasesReader;
 
 /**
@@ -35,7 +37,8 @@ public abstract class Evaluation {
  	protected static final int INIT_VALUE = 100;
 	 static {
 
-		//implementations.add(new StackImplementationStrategy());
+		 implementations.add(new ArrayStackImplementationStrategy());
+		 implementations.add(new LinkedStackImplementationStrategy());
 		 implementations.add(new ArrayQueueImplementationStrategy());
 		 implementations.add(new LinkedQueueImplementationStrategy());
 		 implementations.add(new ArrayDequeueImplementationStrategy());
